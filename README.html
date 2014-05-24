@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>clean-data-project</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>clean-data-project</h1>
+
+<p>This project is to process the raw datafiles from a study on wearable computing devices.  To run the script &ldquo;run_analysis.R&rdquo; the raw zip file must exist in the same directory that this R script is located.   The unzipped folder &ldquo;UCI HAR Dataset&rdquo; from &ldquo;<a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a>&rdquo; is what needs to be in that directory.   All the files used by that script will contained in there.</p>
+
+<h2>Run</h2>
+
+<p>To run the script you need to source the script file then run the function run_analysis().</p>
+
+<ul>
+<li>source(&ldquo;run_analysis.R&rdquo;)</li>
+<li>run_analysis()</li>
+</ul>
+
+<h3>Output</h3>
+
+<p>The output of this script will be a tidy dataset (tidyDS.txt) with the mean of the means of all the variables(see the CodeBook.md for details). It is a text comma delimitted file with headers. This dataset will exist in the directory from which you are running the script.</p>
+
+<h3>Transformation overview</h3>
+
+<p>The first step of the transformation is to read in the 66 mean and standard deviation variables from the test and training dataset.
+The next step is to read the other related files with data to be merged and/or used to make the data more useful.  That is a file containing the subjects for each of the group of measurements for both test and training.   A file of activities being done for each of the measurements, a file of translations for the activity codes and a file of the feature names.   The last file of feature names was further transformed to remove special or unique characters and these names were used to create the names in the internal data.tables and headers in the tidy dataset output.  After the various files were read and merged they were transformed into this tidy dataset giving a mean of the means/standard deviations for each subject/activity.</p>
+
+</body>
+
+</html>
+
